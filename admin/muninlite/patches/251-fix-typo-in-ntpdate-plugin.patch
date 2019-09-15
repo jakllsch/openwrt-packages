@@ -1,0 +1,9 @@
+--- a/plugins/ntpdate	2019-09-15 18:26:47.152428859 -0500
++++ b/plugins/ntpdate	2019-09-15 18:26:09.900015201 -0500
+@@ -1,5 +1,5 @@
+ config_ntpdate() {
+-  echo "graph_title NTP offset and dealy to peer $NTP_PEER"
++  echo "graph_title NTP offset and delay to peer $NTP_PEER"
+   echo "graph_args --base 1000 --vertical-label msec"
+   echo "offset.label Offset"
+   echo "offset.draw LINE2"

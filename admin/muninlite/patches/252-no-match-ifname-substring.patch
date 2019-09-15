@@ -1,0 +1,24 @@
+diff -ur a/plugins/if_ b/plugins/if_
+--- a/plugins/if_	2019-09-15 18:23:49.326291180 -0500
++++ b/plugins/if_	2019-09-15 18:31:10.510872447 -0500
+@@ -26,7 +26,7 @@
+   fi
+ }
+ fetch_if() {
+-  IINFO=$(grep "$1:" /proc/net/dev | cut -d: -f2 | sed -e 's/  */ /g' -e 's/^[ \t]*//')
++  IINFO=$(grep "^ *$1:" /proc/net/dev | cut -d: -f2 | sed -e 's/  */ /g' -e 's/^[ \t]*//')
+   echo "down.value" $(echo $IINFO | cut -d\  -f1)
+   echo "up.value" $(echo $IINFO | cut -d\  -f9)
+ }
+diff -ur a/plugins/if_err_ b/plugins/if_err_
+--- a/plugins/if_err_	2019-09-15 18:23:49.326291180 -0500
++++ b/plugins/if_err_	2019-09-15 18:31:25.226985378 -0500
+@@ -15,7 +15,7 @@
+   echo "trans.warning 1"
+ }
+ fetch_if_err() {
+-  IINFO=$(grep "$1:" /proc/net/dev | cut -d: -f2 | sed -e 's/  */ /g' -e 's/^[ \t]*//')
++  IINFO=$(grep "^ *$1:" /proc/net/dev | cut -d: -f2 | sed -e 's/  */ /g' -e 's/^[ \t]*//')
+   echo "rcvd.value" $(echo $IINFO | cut -d\  -f3)
+   echo "trans.value" $(echo $IINFO | cut -d\  -f11)
+ }

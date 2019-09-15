@@ -1,0 +1,14 @@
+--- a/Makefile	2011-01-27 04:10:24.000000000 -0600
++++ b/Makefile	2019-09-15 13:08:19.274417083 -0500
+@@ -11,9 +11,9 @@
+ 	for PLGIN in $(PLUGINS); \
+ 	do \
+ 	  echo "Adding plugin $$PLGIN"; \
+-	  PLSTR=$$(echo "$$PLSTR"; grep -v '^#' plugins/$$PLGIN); \
++	  PLSTR=$$(printf '%s\n' "$$PLSTR"; grep -v '^#' plugins/$$PLGIN); \
+ 	done; \
+-	PLSTR=$$(echo "$$PLSTR" | sed -e 's/\\/\\\\/g' \
++	PLSTR=$$(printf '%s\n' "$$PLSTR" | sed -e 's/\\/\\\\/g' \
+ 		      	            -e 's/\//\\\//g' \
+ 				    -e 's/\$$/\\$$/g'); \
+ 	perl -p -e \

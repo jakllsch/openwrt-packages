@@ -45,6 +45,7 @@ define Package/glib2/description
 endef
 
 TARGET_CFLAGS += -Wno-error=implicit-function-declaration
+TARGET_CFLAGS += -Wno-error=format-nonliteral
 
 HOST_CONFIGURE_ARGS += \
 	--disable-libelf \

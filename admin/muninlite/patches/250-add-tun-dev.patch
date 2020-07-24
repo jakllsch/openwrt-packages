@@ -1,0 +1,11 @@
+--- a/muninlite.in	2020-07-24 16:34:51.025302549 -0500
++++ b/muninlite.in	2020-07-24 16:32:41.650917707 -0500
+@@ -73,7 +73,7 @@
+ for PLUG in $PLUGINS; do
+   case "$PLUG" in
+     if_|if_err_)
+-      interface_names=$(grep -E '^ *(ppp|eth|wlan|ath|ra|ipsec|tap|br-)[^:]{1,}:' /proc/net/dev | sed 's/^ *//; s/:.*$//')
++      interface_names=$(grep -E '^ *(ppp|eth|wlan|ath|ra|ipsec|tap|br-|tun)[^:]{1,}:' /proc/net/dev | sed 's/^ *//; s/:.*$//')
+       for INTER in $interface_names; do
+         INTERRES=$(echo "$INTER" | sed -e 's/\./VLAN/' -e 's/\-/_/g')
+         RES="$RES ${PLUG}${INTERRES}"
